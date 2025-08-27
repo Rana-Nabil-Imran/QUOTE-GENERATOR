@@ -1,4 +1,3 @@
-# app.py
 import streamlit as st
 import requests
 
@@ -6,13 +5,13 @@ st.set_page_config(page_title="Quote Generator", page_icon="💬")
 st.title("💬 Quote Generator")
 st.write("Click the button to get an inspiring quote from the web!")
 
-# Function to fetch a random quote from the API
+# Function to fetch a random quote from ZenQuotes API
 def get_random_quote():
     try:
-        response = requests.get("https://api.quotable.io/random")
+        response = requests.get("https://zenquotes.io/api/random")
         if response.status_code == 200:
-            data = response.json()
-            return f'"{data["content"]}"\n\n— {data["author"]}'
+            data = response.json()[0]  # ZenQuotes returns a list
+            return f'"{data["q"]}"\n\n— {data["a"]}'
         else:
             return "Sorry, could not fetch a quote at the moment."
     except:
