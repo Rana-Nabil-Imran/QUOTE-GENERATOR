@@ -1,8 +1,7 @@
 import streamlit as st
 import requests
 
-st.set_page_config(page_title="Quote Generator", page_icon="💬")
-st.title("💬 Quote Generator")
+st.title(" Quote Generator")
 st.write("Click the button to get an inspiring quote from the web!")
 
 # Function to fetch a random quote from ZenQuotes API
